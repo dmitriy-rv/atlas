@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/excursions.css">
+{% endblock %}
+
+{% block content %}
+
+		<div class="excursion_list">
+			<div class="title">
+				ЭКСКУРСИИ
+			</div>	
+
+			<div class="list">
+				{% for item in excursions %}
+				{% load cropping %}
+				<figure>
+					<div>
+						<img src="{% cropped_thumbnail item "cropping" %}" alt="">
+					</div>
+					<figcaption>
+						<div class="ex_title">
+							{{ item.title }}
+						</div>
+							{{ item.main_text }}
+						<a href="/excursion/{{ item.id }}"  class="button">
+							ПОДРОБНЕЕ
+						</a>
+					</figcaption>
+				</figure>
+				{% endfor %}
+				
+			</div>
+		</div>
+
+{% endblock %}

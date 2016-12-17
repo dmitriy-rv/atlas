@@ -1,0 +1,71 @@
+.excursion_list .title {
+  font-family: Extra;
+  padding-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 50px;
+  color: #30455b; }
+
+.excursion_list .list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+  .excursion_list .list figure {
+    perspective: 1700px;
+    perspective-origin: 0 50%;
+    background-color: green;
+    width: 500px;
+    height: 300px;
+    background-color: #30455b;
+    margin-bottom: 20px; }
+    .excursion_list .list figure div {
+      overflow: hidden; }
+      .excursion_list .list figure div img {
+        position: relative;
+        transition: 0.5s ease; }
+    .excursion_list .list figure:hover img {
+      transform: translateX(25%); }
+    .excursion_list .list figure figcaption {
+      background-color: #30455b;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 200px;
+      opacity: 0;
+      backface-visibility: hidden;
+      transform-origin: 0 0;
+      transform: rotateY(-90deg);
+      transition: transform 0.4s, opacity 0.1s 0.3s;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #fff; }
+      .excursion_list .list figure figcaption .ex_title {
+        font-family: Extra;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center; }
+      .excursion_list .list figure figcaption .button {
+        color: #fff;
+        font-family: Extra;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 5px 10px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #30455b;
+        transition: 0.7s; }
+        .excursion_list .list figure figcaption .button:hover {
+          background-color: #fff;
+          color: #30455b; }
+    .excursion_list .list figure:hover figcaption {
+      opacity: 1;
+      transform: rotateY(0deg);
+      transition: transform 0.4s, opacity 0.1s; }

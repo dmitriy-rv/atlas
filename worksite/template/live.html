@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/live.css">
+	<link rel="stylesheet" href="/static/css/touchTouch.css">
+{% endblock %}
+
+{% block content %}
+		<div class="excursion_list">
+			<div class="title">
+				ЭКСКУРСИИ LIVE
+			</div>
+			<div class="text">
+				Здесь вы сможете увидеть свежие фотографии с экскурсий, самые интересные моменты, посмотреть на наших экскурвосоводов в деле! 
+			</div>
+			<div class="gallery">
+			{% for item in gallery %}
+				{% load cropping %}
+				<a href="/media/{{ item.image }}" class="gal_item">
+					<img src="{% cropped_thumbnail item "cropping" %}" alt="">
+				</a>	
+			{% endfor %}
+			</div>
+			<script src="/static/js/touchTouch.js"></script>
+			<script>
+				$(function(){
+
+    				// Initialize the gallery
+    				$('.gallery a.gal_item').touchTouch();
+
+				});
+			</script>
+		</div>
+
+{% endblock %}

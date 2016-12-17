@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<title> "Атлас" - Туристичексая компания</title>
+</head>
+<body>
+	<header>
+		<a href="index.html"><div class="logo">
+		</div></a>
+		<ul class="menu">
+			<a href="excursions.html"><li>ЭКСКУРСИИ</li></a>
+			<a href="live.html"><li>ЭКСКУРСИИ LIVE</li></a>
+			<a href="#"><li>ДЕГУСТАЦИИ</li></a>
+			<a href="#"><li>КОНТАКТЫ</li></a>
+		</ul>
+	</header>
+	<div class="content">
+		<div class="slider">
+			<ul class="slider-wrap">
+				<li class="slider-item">
+					<img src="img/slide1.jpg" alt="">
+					<div class="title">
+						Новый Афон
+					</div><br/>
+					<div class="description">
+						Экскурсия по Гагре вечером
+					</div>
+					<div class="button">
+						Подробнее
+					</div>
+				</li>
+				<li class="slider-item">
+					<img src="img/slide2.jpg" alt="">
+					<div class="title">
+						Рица + Гегский
+					</div><br/>
+					<div class="description">
+						Экскурсия по Гагре вечером
+					</div>
+					<div class="button">
+						Подробнее
+					</div>
+				</li>
+				<li class="slider-item">
+					<img src="img/slide3.jpg" alt="">
+					<div class="title">
+						Вечерняя Гагра
+					</div><br/>
+					<div class="description">
+						Экскурсия по Гагре вечером
+					</div>
+					<div class="button">
+						Подробнее
+					</div>
+				</li>
+				<li class="slider-item">
+					<img src="img/slide4.jpg" alt="">
+					<div class="title">
+						Пицунда
+					</div><br/>
+					<div class="description">
+						Экскурсия по Гагре вечером
+					</div>
+					<div class="button">
+						Подробнее
+					</div>
+				</li>
+				<li class="slider-item">
+					<img src="img/slide5.jpg" alt="">
+					<div class="title">
+						Сухум
+					</div><br/>
+					<div class="description">
+						Экскурсия по Гагре вечером
+					</div>
+					<div class="button">
+						Подробнее
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="js/roundabout.js"></script>
+		<script src="js/roundabout-shapes.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.slider-wrap').roundabout({
+					shape: "figure8",
+					minOpacity: 1,
+					responsive: true
+				});
+			});
+		</script>
+		<div class="main_about">
+			<div class="title">
+				Туристичекая компания "Атлас"
+			</div>
+			<div class="text">
+				Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого.
+
+				Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты.
+
+				Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снует между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, 
+			</div>
+		</div>
+		<div class="info">
+			<div class="left">
+				<div class="title">
+					Наши путевки можно приобрести здесь
+				</div>
+				<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=oYTCd9snqlfd8_2Kzy3mrhE-Viw3u8eE&width=800&height=300&lang=ru_RU&sourceType=constructor&scroll=true"></script>
+			</div>
+			<div class="right">
+				<div class="title">
+					Наши контакты
+				</div>
+				<div class="text">
+					<div class="line phone">
+						<div class="img"></div>
+						+7 940 543 23 43
+					</div>
+					<div class="line email">
+						<div class="img"></div>
+						atlas@mail.com
+					</div>
+					<div class="line vk">
+						<div class="img"></div>
+						vk.com/atlas.gagra
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<footer>
+		
+	</footer>
+</body>
+</html>

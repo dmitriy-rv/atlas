@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title> "Атлас" - Туристичексая компания</title>	
+	<link rel="stylesheet" href="/static/css/style.css">
+	<link rel="stylesheet" href="/static/css/slick.css">
+	<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	{% block head %}
+	{% endblock %}
+
+</head>
+<body>
+	<header>
+		<a href="/"><div class="logo">
+		</div></a>
+		<ul class="menu">
+			<a href="/excursions"><li>ЭКСКУРСИИ</li></a>
+			<a href="/live"><li>ЭКСКУРСИИ LIVE</li></a>
+			<a href="/tasting"><li>ДЕГУСТАЦИИ</li></a>
+			<a href="/contacts8"><li>КОНТАКТЫ</li></a>
+		</ul>
+	</header>
+	<div class="content">
+
+		{% block content %}
+		{% for item in article %}
+			<div class="main_text">
+				{% autoescape off %}
+				
+					<div class="title">{{ item.title }}</div>
+					{{ item.text }}
+				
+				{% endautoescape %}
+			</div>
+
+			{% if item.slide %}
+				{% if item.slide == True %}
+				<script src="/static/js/slick.min.js"></script>
+				<div class="slider-for">
+				{% for img in images %}
+						<div>
+							<img src="/media/{{ img.images }}" alt="" style="width:100%;">
+						</div>
+				{% endfor %}
+				</div>
+				<div class="slider-nav">
+					{% for img in images %}
+						<div>
+							<img src="/media/{{ img.images }}" alt="" style="width:100%; height:100%;">
+						</div>
+					{% endfor %}
+				</div>
+				<script>
+					 $('.slider-for').slick({
+					  slidesToShow: 1,
+					  slidesToScroll: 1,
+					  arrows: false,
+					  fade: true,
+					  adaptiveHeight: true,
+					  asNavFor: '.slider-nav'
+					});
+					$('.slider-nav').slick({
+					  slidesToShow: 3,
+					  slidesToScroll: 1,
+					  asNavFor: '.slider-for',
+					  centerMode: true,
+					  focusOnSelect: true
+					});
+				</script>
+
+				{% endif %}
+			{% endif %}
+
+		{% endfor %}
+		{% endblock %}
+		<div class="info">
+			<div class="left">
+				<div class="title">
+					Наши путевки можно приобрести здесь
+				</div>
+
+				<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    					<script type="text/javascript">
+							
+							ymaps.ready(init);
+
+							function init () {
+								var list = [];
+    							
+    							{% for item in map %}
+    								temp = '{{ item.map }}';
+    								coord = temp.split(',');
+    								list.push(coord);
+    							{% endfor %}
+   							
+
+    							var myMap = new ymaps.Map("map", {
+            						center: [list[0][0], list[0][1]],
+            						zoom: 15
+        						}),
+
+
+    						    myCollection = new ymaps.GeoObjectCollection({}, {
+       								preset: 'twirl#redIcon'
+    								});
+
+    						    for (var i = 0; i < list.length; i++) {
+    								myCollection.add(new ymaps.Placemark(list[i]));
+								}
+    							myMap.geoObjects
+        							.add(myCollection);
+							}
+    					</script>
+    					<div id="map" style="width: 800px; height: 300px"></div>
+			</div>
+
+			<div class="right">
+				<div class="title">
+					Наши контакты
+				</div>
+				<div class="text">
+					<div class="line phone">
+						<div class="img"></div>
+						+7 940 543 23 43
+					</div>
+					<div class="line email">
+						<div class="img"></div>
+						atlas@mail.com
+					</div>
+					<div class="line vk">
+						<div class="img"></div>
+						vk.com/atlas.gagra
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<footer>
+		
+	</footer>
+</body>
+</html>

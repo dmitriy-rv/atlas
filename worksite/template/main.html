@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+		<div class="slider">
+			<ul class="slider-wrap">
+				{% for item in excursions %}
+					{% load cropping %}
+				<li class="slider-item">
+					<img src="{% cropped_thumbnail item "slide_cropping" %}" alt="">
+					<div class="title">
+						{{ item.title }}
+					</div><br/>
+					<div class="description">
+						{{ item.main_text|truncatechars:30 }}...
+					</div>
+					<a href="/excursion/{{ item.id }}" class="button">
+						Подробнее
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<script src="/static/js/roundabout.js"></script>
+		<script src="/static/js/roundabout-shapes.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.slider-wrap').roundabout({
+					shape: "figure8",
+					minOpacity: 1,
+					responsive: true
+				});
+			});
+		</script>
+		<div class="main_about">
+			<div class="title">
+				Туристичекая компания "Атлас"
+			</div>
+			<div class="text">
+			{% autoescape off %}
+				{% for item in text %}
+					{{ item.text }}
+				{% endfor %}
+			{% endautoescape %}
+			</div>
+		</div>
+
+
+{% endblock %}
